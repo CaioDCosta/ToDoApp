@@ -32,6 +32,8 @@ Here's a walkthrough of implemented user stories:
 
 Describe any challenges encountered while building the app.
 
+Getting set up and running with Android Studio was difficult at first, since the download speeds were attrocious, but I think once the environment was ready to go, the project was pretty straight forward. I didn't get the chance to do some of the stretch goals, but I will hopefully be able to do future stretch goals on the longer projects!
+
 ## License
 
     Copyright 2019 Caio Costa
