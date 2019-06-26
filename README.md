@@ -16,7 +16,7 @@ The following **required** functionality is completed:
 
 The following **stretch** features are implemented:
 
-* [ ] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected in the todo list
+* [X] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected in the todo list
 
 The following **additional** features are implemented:
 
@@ -32,7 +32,9 @@ Here's a walkthrough of implemented user stories:
 
 Describe any challenges encountered while building the app.
 
-Getting set up and running with Android Studio was difficult at first, since the download speeds were attrocious, but I think once the environment was ready to go, the project was pretty straight forward. I didn't get the chance to do some of the stretch goals, but I will hopefully be able to do future stretch goals on the longer projects!
+Getting set up and running with Android Studio was difficult at first, since the download speeds were attrocious, but I think once the environment was ready to go, the project was pretty straight forward.
+
+I didn't get the editing to be as elegant as I might have liked but it's functional at least!
 
 ## License
 
