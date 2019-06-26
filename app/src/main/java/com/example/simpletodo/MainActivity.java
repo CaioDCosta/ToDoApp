@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> alItems;
     ArrayAdapter<String> itemsAdapter;
     ListView lvItems;
+    int editPosition = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +44,28 @@ public class MainActivity extends AppCompatActivity {
         // Get the input from the EditText
         EditText etItemInput = (EditText) findViewById(R.id.etItemInput);
         String itemText = etItemInput.getText().toString();
+        if(editPosition == -1) {
+            // Add the input to the list
+            itemsAdapter.add(itemText);
+            // Clear the input field
+            Toast.makeText(getApplicationContext(), "Item added!", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            // Update the items at editPosition
+            alItems.remove(editPosition);
+            alItems.add(editPosition, itemText);
 
-        // Add the input to the list
-        itemsAdapter.add(itemText);
-        // Clear the input field
+            // Notify the adapter
+            itemsAdapter.notifyDataSetChanged();
+
+            // Reset changed elements
+            editPosition = -1;
+            Button btnAddItem = (Button) findViewById(R.id.btnAddItem);
+            btnAddItem.setText("Do It!");
+        }
+
+        // Write to data
         etItemInput.setText("");
-        Toast.makeText(getApplicationContext(), "Item added!", Toast.LENGTH_SHORT).show();
         writeItems();
     }
 
@@ -63,6 +81,18 @@ public class MainActivity extends AppCompatActivity {
                 itemsAdapter.notifyDataSetChanged();
                 writeItems();
                 return true;
+            }
+        });
+
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Save the position being edited
+                editPosition = position;
+
+                // Update the button
+                Button btnAddItem = (Button) findViewById(R.id.btnAddItem);
+                btnAddItem.setText("Edit!");
             }
         });
     }
